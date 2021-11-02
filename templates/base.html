@@ -32,7 +32,7 @@
                     <li><a href="#">recipes</a></li>
                     <li><a href="#">New recipe</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
             </div>
@@ -48,16 +48,16 @@
             <li><a href="#">recipes</a></li>
             <li><a href="#">New recipe</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
     </header>
 
     <section>
-        <!-- flash messages -->
+        <!-- flash messages from Code institute https://github.com/Code-Institute-Solutions/TaskManagerAuth/blob/main/02-UserAuthenticationAndAuthorization/04-login_functionality/templates/base.html -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        {% for messages in messages %}
+        {% for message in messages %}
         <div class="row flashes">
             <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
         </div>

@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recipe")
 def get_recipe():
-    recipe = mongo.db.recipe.find()
+    recipe = list(mongo.db.recipe.find())
     return render_template("recipe.html", recipe=recipe)
 
 #Register code from code Institute link:https://github.com/Code-Institute-Solutions/TaskManagerAuth/blob/main/02-UserAuthenticationAndAuthorization/03-register_functionality/app.py 

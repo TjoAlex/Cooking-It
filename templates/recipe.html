@@ -1,13 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1 class="center-align">Recipes</h1>
 
-{% for recipe in recipe %}
-{{ recipe.recipe_name }}<br>
-{{ recipe.category_name }}<br>
-{{ recipe.recipe_ingredients}}<br>
-{{ recipe.recipe_description }}<br>
-{{ recipe.recipe_image }}<br>
-{% endfor %}
+<div class="card">
+    {% for recipe in recipe %}
+    <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator"
+            src="https://images.unsplash.com/photo-1580959375944-abd7e991f971?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=688&q=80"
+            alt="no image to display">
+    </div>
+    <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">{{ recipe.recipe_name }}<i
+                class="material-icons right">more_vert</i></span>
+        <p>Category {{ recipe.category_name }}</p>
+    </div>
+    <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">What You Need<i class="material-icons right">close</i></span>
+        <p>Ingredients: {{ recipe.recipe_ingredients}}</p>
+        <span class="card-title grey-text text-darken-4">How to do it</span>
+        <p>Description: {{ recipe.recipe_description }}</p>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

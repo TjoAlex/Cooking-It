@@ -13,6 +13,18 @@
                 <label for="recipe_name"> Recipe Name</label>
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">format_color_text</i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Choose your Category</option>
+                    {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label>Recipe Category</label>
+            </div>
+        </div>
         <div class="input-field col s12">
             <i class="material-icons prefix">format_list_bulleted</i>
             <textarea id="recipe_ingredients" name="recipe_ingredients" minlength="5"

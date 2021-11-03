@@ -4,7 +4,8 @@
 <h3 class="center-align">Add New Recipe</h3>
 
 <div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="">
+    <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <!-- input recipe name -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">format_color_text</i>
@@ -13,9 +14,10 @@
                 <label for="recipe_name"> Recipe Name</label>
             </div>
         </div>
+        <!-- category dropdown -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">format_color_text</i>
+                <i class="material-icons prefix">folder_open</i>
                 <select id="category_name" name="category_name" class="validate" required>
                     <option value="" disabled selected>Choose your Category</option>
                     {% for category in categories %}
@@ -25,18 +27,28 @@
                 <label>Recipe Category</label>
             </div>
         </div>
+        <!-- ingredients input -->
         <div class="input-field col s12">
             <i class="material-icons prefix">format_list_bulleted</i>
             <textarea id="recipe_ingredients" name="recipe_ingredients" minlength="5"
                 class="materialize-textarea validate" required></textarea>
             <label for="recipe_ingredients"> Ingredients</label>
         </div>
+        <!-- description input -->
         <div class="input-field col s12">
             <i class="material-icons prefix">border_color</i>
             <textarea id="recipe_description" name="recipe_description" minlength="5"
                 class="materialize-textarea validate" required></textarea>
             <label for="recipe_description"> Description</label>
         </div>
+</div>
+<!-- submit button -->
+<div class="row">
+    <div class="col s12 center-align">
+        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+            Add Your Recipe
+        </button>
+    </div>
 </div>
 </form>
 </div>

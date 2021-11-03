@@ -3,60 +3,30 @@
 
 <h3 class="center-align">Add New Recipe</h3>
 
-<div class="row">
+<div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="">
         <div class="row">
-            <form class="col s6">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Recipe Name</label>
-                    </div>
-                </div>
-            </form>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">format_color_text</i>
+                <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="validate"
+                    required>
+                <label for="recipe_name"> Recipe Name</label>
+            </div>
         </div>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Category</label>
-                    </div>
-                </div>
-            </form>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">format_list_bulleted</i>
+            <textarea id="recipe_ingredients" name="recipe_ingredients" minlength="5"
+                class="materialize-textarea validate" required></textarea>
+            <label for="recipe_ingredients"> Ingredients</label>
         </div>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Ingredients</label>
-                    </div>
-                </div>
-            </form>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">border_color</i>
+            <textarea id="recipe_description" name="recipe_description" minlength="5"
+                class="materialize-textarea validate" required></textarea>
+            <label for="recipe_description"> Description</label>
         </div>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Description</label>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Insert image src</label>
-                        <!--Add pop up telling what src is-->
-                    </div>
-                </div>
-            </form>
-        </div>
-    </form>
+</div>
+</form>
 </div>
 
 {% endblock %}

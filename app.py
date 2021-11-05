@@ -24,7 +24,7 @@ def get_recipe():
     recipe = list(mongo.db.recipe.find())
     return render_template("recipe.html", recipe=recipe)
 
-#Register code from code Institute link:https://github.com/Code-Institute-Solutions/TaskManagerAuth/blob/main/02-UserAuthenticationAndAuthorization/03-register_functionality/app.py 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -60,11 +60,12 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -74,7 +75,7 @@ def login():
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-         
+
     return render_template("login.html")
 
 
@@ -109,12 +110,20 @@ def add_recipe():
             "recipe_image": request.form.get("recipe_image"),
             "created_by": session["user"]
         }
-        mongo.db.recipes.insert_one(add)
+        mongo.db.recipe.insert_one(add)
         flash("Your new recipe is added!")
         return redirect(url_for("get_recipe"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    """A dummy docstring."""
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories)
 
 
 if __name__ == "__main__":

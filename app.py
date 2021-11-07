@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
+# ---- CONFIG ---- #
 
 app = Flask(__name__)
 
@@ -17,6 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# ---- VARIABLES ---- #
 
 @app.route("/")
 @app.route("/get_recipe")
@@ -105,6 +107,8 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+# ---- RECIPE PAGES ---- #
+
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
@@ -151,6 +155,12 @@ def delete_recipe(recipe_id):
     mongo.db.recipe.remove({"_id": ObjectId(recipe_id)})
     flash("Your recipe is now deleted")
     return redirect(url_for("get_recipe"))
+
+
+@app.route('/index')
+def index():
+    return render_template("index.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

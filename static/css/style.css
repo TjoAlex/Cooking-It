@@ -1,14 +1,24 @@
-.flashes h4 {
-    line-height: 2;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-/* -- Recipe card --*/
-.card .card-content {
-    padding: 60px;
+.flashes h4 {
+    line-height: 2;
 }
 
 img {
     width: 30%;
     margin: 0 auto;
-    object-fit: cover;
+    background-size: cover;
+}
+
+.parallax-container {
+    height: "600px";
+}
+
+#heading {
+    font-size: 5.2rem;
+    line-height: 310%;
+    color: white;
 }

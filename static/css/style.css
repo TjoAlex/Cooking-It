@@ -22,3 +22,9 @@ img {
     line-height: 310%;
     color: white;
 }
+
+.container {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+}

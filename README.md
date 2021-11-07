@@ -1,6 +1,6 @@
 <h1 align="center">Cooking-It Website</h1>
 
-[View the live project here.](https://###)
+[View the live project here.](https://cooking-it.herokuapp.com/)
 
 This is the main website for Cooking-It. It is designed to be accessible and responsive for all different devices as well as functional for all types of different people wanting to have a place to enjoy and share their passion for food and cooking. 
 

@@ -18,10 +18,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# ---- VARIABLES ---- #
+# ---- Recipe ---- #
+
 
 @app.route("/")
-@app.route('/index')
 def index():
     return render_template("index.html")
 
@@ -29,14 +29,16 @@ def index():
 @app.route("/get_recipe")
 def get_recipe():
     recipe = list(mongo.db.recipe.find())
-    return render_template("recipe.html", recipe=recipe)
+    return render_template("recipes.html", recipe=recipe)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     recipe = list(mongo.db.recipe.find({"$text": {"$search": query}}))
-    return render_template("recipe.html", recipe=recipe)
+    return render_template("recipes.html", recipe=recipe)
+
+# ---- User ---- #
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -113,6 +115,13 @@ def logout():
     return redirect(url_for("login"))
 
 # ---- RECIPE PAGES ---- #
+
+
+@app.route('/recipe_page/<recipe_id>', methods=['GET', 'POST'])
+def recipe_page(recipe_id):
+    # Route to show single recipe view page
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('recipe.html', recipe=recipe)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])

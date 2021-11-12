@@ -7,7 +7,7 @@ body {
     line-height: 2;
 }
 
-img {
+.image {
     width: 30%;
     margin: 0 auto;
     background-size: cover;

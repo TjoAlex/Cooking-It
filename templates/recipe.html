@@ -13,24 +13,26 @@
         </div>
         <div class="col s4">
                 <i class="material-icons small">access_time</i>
-                <p>Time: {{ recipe.time }}</p>
+                <p>Time: {{ recipe.recipe_time }}</p>
         </div>
         <div class="col s4">
                 <i class="material-icons small">group</i>
-                <p>Servings: {{ recipe.servings }}</p>
+                <p>Servings: {{ recipe.recipe_servings }}</p>
         </div>
 </div>
 <h1 class="center-align">{{ recipe.recipe_name }}</h1>
-<br>
-<div class="row center-align">
+
+<div class="row center-align text">
+        <p>{{ recipe.recipe_description }}</p>
+        <br>
         <h4>Ingredients</h4>
         <p>{{ recipe.recipe_ingredients }}</p>
         <br>
-        <h4>Description</h4>
-        <p>{{ recipe.recipe_description }}</p>
+        <h4>Method</h4>
+        <p>{{ recipe.recipe_method }}</p>
         <br>
         <p>Created by: {{ recipe.created_by }}</p>
-        <a href="{{ url_for('get_recipe') }}" class="btn-large red text-shadow">Cancel</a>
+        <a href="{{ url_for('get_recipe') }}" class="btn-large teal darken-4 text-shadow">Cancel</a>
 </div>
 
 {% endblock %}

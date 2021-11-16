@@ -46,8 +46,8 @@
             <h4>Description</h4>
             <p>{{ recipe.recipe_description }}</p>
             <p><i class="material-icons tiny">folder</i> Category: {{ recipe.category_name }}</p>
-            <p><i class="material-icons tiny">access_time</i> Time: {{ recipe.time }}</p>
-            <p><i class="material-icons tiny">group</i> Servings: {{ recipe.servings }}</p>
+            <p><i class="material-icons tiny">access_time</i> Time: {{ recipe.recipe_time }}</p>
+            <p><i class="material-icons tiny">group</i> Servings: {{ recipe.recipe_servings }}</p>
             <p>Created by: {{ recipe.created_by }}</p>
             <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}" class="btn-small teal accent-4">Read
                 More</a>

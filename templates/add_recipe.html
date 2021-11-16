@@ -14,6 +14,13 @@
                 <label for="recipe_name">Recipe Name</label>
             </div>
         </div>
+        <!-- description input -->
+        <div class="input-field col s12">
+            <i class="material-icons prefix">border_color</i>
+            <textarea id="recipe_description" name="recipe_description" minlength="5"
+                class="materialize-textarea validate" required></textarea>
+            <label for="recipe_description"> Description</label>
+        </div>
         <!-- category dropdown -->
         <div class="row">
             <div class="input-field col s12">
@@ -27,6 +34,20 @@
                 <label>Recipe Category</label>
             </div>
         </div>
+        <!-- servings input -->
+        <div class="input-field col s12">
+            <i class="material-icons prefix">group</i>
+            <textarea id="recipe_servings" name="recipe_servings" minlength="1" class="materialize-textarea validate"
+                required></textarea>
+            <label for="recipe_servings"> Servings</label>
+        </div>
+        <!-- time input -->
+        <div class="input-field col s12">
+            <i class="material-icons prefix">access_time</i>
+            <textarea id="recipe_time" name="recipe_time" minlength="1" class="materialize-textarea validate"
+                required></textarea>
+            <label for="recipe_time"> Time</label>
+        </div>
         <!-- ingredients input -->
         <div class="input-field col s12">
             <i class="material-icons prefix">format_list_bulleted</i>
@@ -34,12 +55,12 @@
                 class="materialize-textarea validate" required></textarea>
             <label for="recipe_ingredients"> Ingredients</label>
         </div>
-        <!-- description input -->
+        <!-- method input -->
         <div class="input-field col s12">
-            <i class="material-icons prefix">border_color</i>
-            <textarea id="recipe_description" name="recipe_description" minlength="5"
-                class="materialize-textarea validate" required></textarea>
-            <label for="recipe_description"> Description</label>
+            <i class="material-icons prefix">format_list_bulleted</i>
+            <textarea id="recipe_method" name="recipe_method" minlength="5" class="materialize-textarea validate"
+                required></textarea>
+            <label for="recipe_method"> Method step by step</label>
         </div>
         <!-- Image url input -->
         <div class="input-field col s12">

@@ -1,234 +1,244 @@
 <h1 align="center">Cooking-It Website</h1>
 
+<h2 align="center"><img src="#.png"></h2>
+
 [View the live project here.](https://cooking-it.herokuapp.com/)
 
 This is the main website for Cooking-It. It is designed to be accessible and responsive for all different devices as well as functional for all types of different people wanting to have a place to enjoy and share their passion for food and cooking. 
 
-<h2 align="center"><img src="#.png"></h2>
-
 ## User Experience (UX)
 
--   ### User stories
+## Strategy
 
-       -   #### First Time Visitor Goals
+The purpous of Cooking-It is to bring people with the love of food together and have a place where lots of different recipes are collected at one place to make it easy access finding inspiration. So it empovers the user to share their own recipes and have pne single place to find recipes on, making it no longer neccessary to jump from website to website to find new knowledge in food and everything it has to offer. 
 
-       1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about it's main purpose.
-       2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find and search for content and register to the website.
-       3. As a First Time Visitor, I want an overall picture of what my own account can provide in addition to what is already available without a account.
+### Site Goals
 
-       -   #### Returning Visitor Goals
+* Make it easy for the user to find new recipes
+* Provide an overview fo every type of recipe it has to offer
+* Provide in debth information about particular recipes the user would like to explore 
+* Easy access to upload your own recipes to share with others
 
-        1. As a Returning Visitor, I want to find new post of different recipes from other users.
-        2. As a Returning Visitor, I want to upload my own recipes I found interesting and delicious.
-        3. As a Returning Visitor, I want to share recepies I found on the website.   
+### User stories:
+* First Time Visitor Goals
+    * As a First Time Visitor, I want to easily understand the website and learn more about it's main purpose;
+    * As a First Time Visitor, I want to be able to easily navigate throughout the site;
+    * As a First Time Visitor, I want to search for different recipes;
+    * As a First Time Visitor, I want to be able to register for Cooking-It;
+    * As a First Time Visitor, I want an overall picture of what my own account can provide in addition to what is already available without a account;
+    * As a First Time Visitor, I want to be able to add my own recipes;
+    * As a First Time Visitor, I want to have the option to edit or delete my own recipes.
+    * As a First Time Visitor, I want to able to logout.
+* Returning Visitor Goals
+    * As a Returning Visitor, I want the same application experience as a first time visitor;
+    * As a Returning Visitor, I want to login to my own account;
+    * As a Returning Visitor, I want to find new post of different recipes from other users;
+    * As a Returning Visitor, I want to share recepies I found on the website;
+    * As a Returning Visitor, I want to be able to edit or remove my profile.
+* Frequent User Goals
+    * As a Frequent User, I want the same experience as a returning visitor;
+    * As a Frequent User, I want to check to see if there are any newly added comments to my own or others recepies;
+    * As a Frequent User, I want to give feedback by commenting recipes I have tried.
 
-        -  #### Frequent User Goals
+## Scope
+Planned Features:<br>
+* Responsive design;
+* Navigation menu (wide as the site);
+* MongoDB databases to store user/profile, recipes and comment information;
+* CRUD functionality;
+* Registerd users added recipes and management.
+* Overiew of every recipe on the website;
+* Profile page that can be deleted or editted;
+* Login functionality;
+* Logout functionality.
 
-        1. As a Frequent User, I want to check to see if there are any newly added comments to my own or others recepies.
-        2. As a Frequent User, I want to give feedback by commenting and liking the recipes I have tried.
-        3. ...
+## Structure 
 
--   ### Design
-    -   #### Colour Scheme
-        -   The main colours used are....
-    -   #### Typography
-        -   Why I used this ....
-    -   #### Imagery
-        -   Imagery is important...
+User Story: 
 
-*   ### Wireframes
+> As a First Time Visitor, I want to easily understand the website and learn more about it's main purpose.
+
+Acceptance criteria:
+* Landing page of Cooking-It stands for holing most of the information for the user visiting for the first time explaining everything there is to know before register. 
+
+Implementation:
+* A landingpage is provided to hold all information neccessary to explain the purpous of the website and guiding the user trough how everything works.
+
+<h2 align="center"><img src="#.png"></h2>
+
+> As a First Time Visitor, I want to be able to easily navigate throughout the site.
+
+Acceptance criteria:
+* This made fairly easy mostly trough the navigation bar on top of the page, a samaler navigation in the fotter and buttons and links leading to different pages.
+
+Implementation:
+* The website holds a navigation fitting the full width of the screen on top of the page, simply designed to make it easy for the user to find different pages on the website. The user can also find links to different pages on the bottom of the page in the fotter. The user will have buttons providing links to go back do different pages on the website but will also always be able to find the navigation if scrolling to the top of any page the user is exploring. Every page also holds a heading provided with the name for the page, making it more easy for the user to know exactly where they are on the website. 
+
+<h2 align="center"><img src="#.png"></h2>
+
+> As a First Time Visitor, I want to search for different recipes.
+
+Acceptance criteria:
+* It should be fairly easy for the user to search the database for recipes by ingredient or name. 
+
+Implementation:
+* The user will find a search bar when visiting the recipes page that is styled to be easily seen on top of that page, also holding a heading telling the user what it actually is. The search bar is provided with functions that makes it possible to search by name of a recipe or ingredient to easily find what one is looking for. 
+
+<h2 align="center"><img src="#.png"></h2>
+
+> As a First Time Visitor, I want to be able to register for Cooking-It.
+
+Acceptance criteria:
+* Easy access by navigation bar or on the landing page will guide the user to the registration. 
+
+Implementation:
+* On the landing page the user will find a button that asks if he or she want to register. The possibility to register will also be seen on the navigation if the user is not loged in already and if the instead pressed to login a link will be provided on the login page leading the user to the register page. 
+
+<h2 align="center"><img src="#.png"></h2>
+
+> As a First Time Visitor, I want an overall picture of what my own account can provide in addition to what is already available without a account.
+
+Acceptance criteria:
+* Information will clearly describe everything on the landing page of the website.
+
+Implementation:
+* The landing page will provide the user with information on what the user get if they create a account. The user will also see after it has registerd that some new pages is provided as soon as one is loged in, this can be seen for example on the navigation on top of the page providing new things as adding a recipe or logout. 
+
+<h2 align="center"><img src="#.png"></h2>
+
+> As a First Time Visitor, I want to be able to add my own recipes.
+
+Acceptance criteria:
+* The user should easily find trough navigation or their profile their way to add a new recipe.
+
+Implementation:
+* The user will find in the navigation the option to add a recipe, meaning a page provided with a form that one must follow step by step to make a propper recipe. This link to this form will also be found under the users profile page, providing as easy access as possible for the user to find it's own way to create a recipe. Once he or she has finished working on the recipe they can click on "Add recipe" and the will come back to the recipes page with a message telling them the recipe has been added.
+
+<h2 align="center"><img src="#.png"></h2>
+
+> As a First Time Visitor, I want to have the option to edit or delete my own recipes.
+
+Acceptance criteria:
+* It should be fairly easy for the user to find the edit or delete buttons provided on the recipes page.
+
+Implementation:
+* Once the user has added it's recipe they can either scroll to find it on the recipes page or search for it to then find that their recipes added now have buttons as delete or edit. Made to easily click that either if you clicked edit will take you back to the recipe form or if clicked delete will remove it for you confirmed on top of the page by a message telling the user your recipe has now been deleted. 
+
+<h2 align="center"><img src="#.png"></h2>
+
+> As a First Time Visitor, I want to able to logout.
+
+Acceptance criteria:
+* It should be fairly easy for the user to log out of their own account.
+
+Implementation:
+* As the navigation on top of the page holds a lot of helping guidlines for the user, even here the user can find a link to be able to logout of the page. Just by clicking on the logout the user will sucessfully be loged out. Otherwise the user also can find the logout button on their profile page. Making it extray easy to always find it's way out of the website. 
+
+<h2 align="center"><img src="#.png"></h2>
+
+## Skeleton 
+
+Below you find the wireframes: 
 
     -   Home Page Wireframe - [View](#)
-
     -   Mobile Wireframe - [View](#)
-
     -   Contact Us Page Wireframe - [View](#)
 
-## Features
+## Database Design
 
--   Responsive on all device sizes
+MongoDB Object format examples: 
 
--   Interactive elements
+## Security 
+
+Database connection details are set up in the env.py for development, in the case of security this is not uploaded to GitHub making sure the database and connectiondetails wont be visible for users. In production these are stored in Heroku.
+
+## Surface
+
+* Color Scheme
+    * I wanted to keep the website light and airy with only a few accent colors following in the theam color Teal; some of the colors used:
+        * For Navigation bar, fotter some text and buttons:
+            * #80cbc4;
+            * #004d40;
+            * 00897b;
+            * #00796b;
+        * For elements that needed contrast:
+            * #ef5350;
+            * #004d40;
+            * #fafafa;
+
+* Typography
+    * The main font used is...
+
+
+# Features
+
+## Existing Features 
+* User landingpage
+* User registration
+* User login
+* Overview of recipes
+* In detail page of single recipe 
+* Create a new recipe
+* Edit a added recipe 
+* Delete a added recipe
+* User profile page
+* User logout 
+
+## Features left to implement
+In my opinion ther is a lot that could be implemented to this website to make it even more fun an accessible for people and here you can find some of my thoughts for more possibilities:
+* A rating function for all recipes making it easy to see how popular they are.
+* A add to shoping list function, making it even more simple to shop for each recipe.
+* A chat function to chat and cook together with friends from the website. 
+* A friend request function. 
 
 ## Technologies Used
 
-### Languages Used
-
--   [HTML5](https://en.wikipedia.org/wiki/HTML5)
--   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
--   [JavaScript](https://sv.wikipedia.org/wiki/Javascript)
--   [Python3](https://sv.wikipedia.org/wiki/Python_%28programspr%C3%A5k%29)
--   [MongoDB](https://en.wikipedia.org/wiki/MongoDB)
--   [Flask](https://en.wikipedia.org/wiki/Flask_%28web_framework%29)
-- Add more
-
-### Frameworks, Libraries & Programs Used
-
-1. [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
-    - Bootstrap was used to assist with the responsiveness and styling of the website.
-1. [Hover.css:](https://ianlunn.github.io/Hover/)
-    - Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
-1. [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Titillium Web' font into the style.css file which is used on all pages throughout the project.
-1. [Font Awesome:](https://fontawesome.com/)
-    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-1. [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
-1. [Git](https://git-scm.com/)
-    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-1. [GitHub:](https://github.com/)
-    - GitHub is used to store the projects code after being pushed from Git.
-1. [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
-    - Photoshop was used to create the logo, resizing images and editing photos for the website.
-1. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the [wireframes](https://github.com/) during the design process.
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+    * This website has the HTML as the main language used to make a complete structure for the website. 
+* [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+    * This website use some custom css to perosonalize the style.
+* [Materialize](https://materializecss.com/about.html)
+    * Materialize was used create the base structure of the website, only a few custom css changes where made to personalize their layouts already existing. 
+* [Materialize Icons](https://materializecss.com/icons.html)
+    * I wanted easy access for me to build the webpage and so also materializes icons where used.
+* [Google Fonts](https://fonts.google.com/)
+    * Used to import some fonts to make the website even more easy to read. 
+* [JavaScript](https://sv.wikipedia.org/wiki/Javascript)
+    * A few lines of the JavaScript from Materialize vas implented to create functions as a parallax and dropdowns etc. 
+* [jQuery](https://jquery.com/)
+    * To support Materialize functionality.
+* [Python3](https://sv.wikipedia.org/wiki/Python_%28programspr%C3%A5k%29)
+    * The projects main core was created using Python.
+    * Python modules used, they can also be found in the requirements.txt file:
+    * click==8.0.3
+    * dnspython==2.1.0
+    * Flask==2.0.2
+    * Flask-PyMongo==2.3.0
+    * itsdangerous==2.0.1
+    * pymongo==3.12.1
+    * Werkzeug==2.0.2
+* [MongoDB](https://en.wikipedia.org/wiki/MongoDB)
+    * Was used to make the document based databases (collections), used to the store the data for this project.
+* [Heroku](https://www.heroku.com/)
+    * Heroku was used to deply this website and make it live. 
+* [Git](https://git-scm.com/) 
+    * Git was used for version control by the Gitpod terminal to commit to Git and push the code to Github. 
+* [Github](https://github.com/) 
+    * Github was used to store the project and it's code after being psuhed from Git.
+* [Balsamiq](https://balsamiq.com/)
+    * USed to create the wireframes for this website before starting to build it. 
+* [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+    * This built in tool for developers were used constantly trough this development journey to inspect when something didn't work or looked right. 
+* All code was written in the Gitpod Workspace 
 
 ## Testing
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+* [W3C Markup Validator:](https://validator.w3.org/)<br><br>Where there errors?
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)<br><br>Where there errors?
+* [jshint.com](https://jshint.com/)<br><br>Where there errors?
+* [PEP8 Validator](http://pep8online.com/)<br><br>Where there errors?
 
-### Testing User Stories from User Experience (UX) Section
+## Testing User Stories from User Experience (UX) Section
 
--   #### First Time Visitor Goals
-
-    1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the organisation.
-
-        1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image with Text and a "Learn More" Call to action button.
-        2. The main points are made immediately with the hero image
-        3. The user has two options, click the call to action buttons or scroll down, both of which will lead to the same place, to learn more about the organisation.
-
-    2. As a First Time Visitor, I want to be able to easily be able to navigate throughout the site to find content.
-
-        1. The site has been designed to be fluid and never to entrap the user. At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
-        2. At the bottom of the first 3 pages there is a redirection call to action to ensure the user always has somewhere to go and doesn't feel trapped as they get to the bottom of the page.
-        3. On the Contact Us Page, after a form response is submitted, the page refreshes and the user is brought to the top of the page where the navigation bar is.
-
-    3. As a First Time Visitor, I want to look for testimonials to understand what their users think of them and see if they are trusted. I also want to locate their social media links to see their following on social media to determine how trusted and known they are.
-        1. Once the new visitor has read the About Us and What We Do text, they will notice the Why We are Loved So Much section.
-        2. The user can also scroll to the bottom of any page on the site to locate social media links in the footer.
-        3. At the bottom of the Contact Us page, the user is told underneath the form, that alternatively they can contact the organisation on social media which highlights the links to them.
-
--   #### Returning Visitor Goals
-
-    1. As a Returning Visitor, I want to find the new programming challenges or hackathons.
-
-        1. These are clearly shown in the banner message.
-        2. They will be directed to a page with another hero image and call to action.
-
-    2. As a Returning Visitor, I want to find the best way to get in contact with the organisation with any questions I may have.
-
-        1. The navigation bar clearly highlights the "Contact Us" Page.
-        2. Here they can fill out the form on the page or are told that alternatively they can message the organisation on social media.
-        3. The footer contains links to the organisations Facebook, Twitter and Instagram page as well as the organization's email.
-        4. Whichever link they click, it will be open up in a new tab to ensure the user can easily get back to the website.
-        5. The email button is set up to automatically open up your email app and autofill there email address in the "To" section.
-
-    3. As a Returning Visitor, I want to find the Facebook Group link so that I can join and interact with others in the community.
-        1. The Facebook Page can be found at the footer of every page and will open a new tab for the user and more information can be found on the Facebook page.
-        2. Alternatively, the user can scroll to the bottom of the Home page to find the Facebook Group redirect card and can easily join by clicking the "Join Now!" button which like any external link, will open in a new tab to ensure they can get back to the website easily.
-        3. If the user is on the "Our Favourites" page they will also be greeted with a call to action button to invite the user to the Facebook group. The user is incentivized as they are told there is a weekly favourite product posted in the group.
-
--   #### Frequent User Goals
-
-    1. As a Frequent User, I want to check to see if there are any newly added challenges or hackathons.
-
-        1. The user would already be comfortable with the website layout and can easily click the banner message.
-
-    2. As a Frequent User, I want to check to see if there are any new blog posts.
-
-        1. The user would already be comfortable with the website layout and can easily click the blog link
-
-    3. As a Frequent User, I want to sign up to the Newsletter so that I am emailed any major updates and/or changes to the website or organisation.
-        1. At the bottom of every page their is a footer which content is consistent throughout all pages.
-        2. To the right hand side of the footer the user can see "Subscribe to our Newsletter" and are prompted to Enter their email address.
-        3. There is a "Submit" button to the right hand side of the input field which is located close to the field and can easily be distinguished.
-
-### Further Testing
-
--   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
--   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
--   A large amount of testing was done to ensure that all pages were linking correctly.
--   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
-
-### Known Bugs
-
--   On some mobile devices the Hero Image pushes the size of screen out more than any of the other content on the page.
-    -   A white gap can be seen to the right of the footer and navigation bar as a result.
--   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
-
-## Deployment
-
-### GitHub Pages
-
-The project was deployed to GitHub Pages using the following steps...
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
-3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-4. Under "Source", click the dropdown called "None" and select "Master Branch".
-5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site [link](https://github.com) in the "GitHub Pages" section.
-
-### Forking the GitHub Repository
-
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-3. You should now have a copy of the original repository in your GitHub account.
-
-### Making a Local Clone
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. Under the repository name, click "Clone or download".
-3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-4. Open Git Bash
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type `git clone`, and then paste the URL you copied in Step 3.
-
-```
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-```
-
-7. Press Enter. Your local clone will be created.
-
-```
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-> Cloning into `CI-Clone`...
-> remote: Counting objects: 10, done.
-> remote: Compressing objects: 100% (8/8), done.
-> remove: Total 10 (delta 1), reused 10 (delta 1)
-> Unpacking objects: 100% (10/10), done.
-```
-
-Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
-
-## Credits
-
-### Code
-
--   The full-screen hero image code came from this [StackOverflow post](https://stackoverflow.com)
-
--   [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
-
--   [MDN Web Docs](https://developer.mozilla.org/) : For Pattern Validation code. Code was modified to better fit my needs and to match an Irish phone number layout to ensure correct validation. Tutorial Found [Here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel#Pattern_validation)
-
-### Content
-
--   All content was written by the developer.
-
--   Psychological properties of colours text in the README.md was found [here](http://www.colour-affects.co.uk/psychological-properties-of-colours)
-
-### Media
-
--   All Images were created by the developer.
-
-### Acknowledgements
-
--   My Mentor for continuous helpful feedback.
-
--   Tutor support at Code Institute for their support.
+* First Time Visitor Goals

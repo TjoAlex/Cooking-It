@@ -5,59 +5,62 @@
 <div class="parallax-container fullscreen">
     <h1 class="center-align lighten-2" id="heading">Recipes</h1>
     <div class="parallax"><img
-            src="https://images.unsplash.com/photo-1602516095206-3365caa029e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+            src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
             class="responsive-img s12" alt="Parallax">
     </div>
 </div>
 
 <!-- Search bar -->
-<div class="row card-panel grey lighten-5">
-    <form action="{{ url_for('search') }}" method="post" class="col s12">
-        <div class="row valign_wrapper center-align">
-            <div class="input-field col s12 m8">
-                <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-                <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                <label for="query">Search by ingredient</label>
-            </div>
-            <div class="col s12 m4">
-                <a href="{{ url_for('get_recipe') }}" class="red btn text-shadow">Reset</a>
-                <button type="submit" class="light-blue darken-1 btn text-shadow">
-                    <i class="fas fa-search left"></i>Search
-                </button>
-            </div>
+<section id="search" class="section section-search teal darken-3 white-text center scrollspy">
+    <div class="container">
+        <div class="row">
+            <form action="{{ url_for('search') }}" method="post" class="col s12">
+                <div class="col s12">
+                    <h3>Search Recipes</h3>
+                    <div class="input-field">
+                        <input type="text" name="query" id="query" minlength="3" class="white grey-text validate"
+                            placeholder="Salmon, Rice, etc.." required>
+                    </div>
+                    <a href="{{ url_for('get_recipe') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="teal accent-4 btn text-shadow">
+                        <i class="fas fa-search left"></i>Search
+                    </button>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
+    </div>
+</section>
 
 <!-- Category buttons -->
 
-<!-- Recipes -->
-<div class="row center-align">
-    {% if recipe|length > 0 %}
-    {% for recipe in recipe %}
-    <h2 class="tex">{{ recipe.recipe_name }}</h2>
-    <img class="image " src="{{ recipe.recipe_image }}" alt="No image found">
-
-    <p>Category: {{ recipe.category_name }}</p>
-    <h4>Ingredients</h4>
-    <p>{{ recipe.recipe_ingredients }}</p>
-    <h4>Description</h4>
-    <p>{{ recipe.recipe_description }}</p>
-    <br>
-    <p>Created by: {{ recipe.created_by }}
-        <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}" class="btn-small light_blue lighten_1">Read
-            More</a>
-        {% if session.user|lower == recipe.created_by|lower %}
-        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small light_blue lighten_1">Delete</a>
-        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small light_blue lighten_1">Edit</a>
-    </p>
-    {% endif %}
-    <hr>
-    {% endfor %}
-    {% else %}
-    <h3 class="red-text text-darken-4 center-align"> No Recipes found</h3>
-    {% endif %}
+<!-- Recipes section -->
+{% if recipe|length > 0 %}
+{% for recipe in recipe %}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m7 l6">
+            <img src="{{ recipe.recipe_image }}" alt="No image found" class="responsive-img card materialbox">
+        </div>
+        <div class="col s12 m7 l6">
+            <h2 class="tex">{{ recipe.recipe_name }}</h2>
+            <h4>Description</h4>
+            <p>{{ recipe.recipe_description }}</p>
+            <p><i class="material-icons tiny">folder</i> Category: {{ recipe.category_name }}</p>
+            <p><i class="material-icons tiny">access_time</i> Time: {{ recipe.time }}</p>
+            <p><i class="material-icons tiny">group</i> Servings: {{ recipe.servings }}</p>
+            <p>Created by: {{ recipe.created_by }}</p>
+            <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}" class="btn-small teal accent-4">Read
+                More</a>
+            {% if session.user|lower == recipe.created_by|lower %}
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small teal darken-4">Edit</a>
+            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red lighten-1">Delete</a>
+            {% endif %}
+        </div>
+    </div>
 </div>
-</div>
+{% endfor %}
+{% else %}
+<h3 class="red-text text-darken-4 center-align"> No Recipes found</h3>
+{% endif %}
 
 {% endblock %}

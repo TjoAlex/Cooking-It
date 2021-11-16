@@ -8,7 +8,8 @@ body {
 }
 
 .image {
-    width: 30%;
+    width: 50pc;
+    height: 50pc;
     margin: 0 auto;
     background-size: cover;
 }
@@ -31,4 +32,11 @@ body {
 
 .text {
     width: 80%;
+}
+
+.section-search input {
+    padding: 5px !important;
+    font-size: 18px !important;
+    width: 90% !important;
+    border: #f4f4f4 3px solid !important;
 }

@@ -3,17 +3,34 @@
 
 <!-- Parallax header -->
 <div class="parallax-container fullscreen">
-        <div class="parallax"><img src="{{ recipe.recipe_image }}" class="responsive-img s12" alt="Parallax">
+        <div class="parallax"><img class="responsive-img s12" src="{{ recipe.recipe_image }}" alt="No image found">
         </div>
 </div>
-<h1 class="tex">{{ recipe.recipe_name }}</h1>
-<p>Category: {{ recipe.category_name }}</p>
-<h4>Ingredients</h4>
-<p>{{ recipe.recipe_ingredients }}</p>
-<h4>Description</h4>
-<p>{{ recipe.recipe_description }}</p>
+<div class="row center-align card-panel grey lighten-5">
+        <div class="col s4">
+                <i class="material-icons small">folder</i>
+                <p>Category: {{ recipe.category_name }}</p>
+        </div>
+        <div class="col s4">
+                <i class="material-icons small">access_time</i>
+                <p>Time: {{ recipe.time }}</p>
+        </div>
+        <div class="col s4">
+                <i class="material-icons small">group</i>
+                <p>Servings: {{ recipe.servings }}</p>
+        </div>
+</div>
+<h1 class="center-align">{{ recipe.recipe_name }}</h1>
 <br>
-<p>Created by: {{ recipe.created_by }}
+<div class="row center-align">
+        <h4>Ingredients</h4>
+        <p>{{ recipe.recipe_ingredients }}</p>
+        <br>
+        <h4>Description</h4>
+        <p>{{ recipe.recipe_description }}</p>
+        <br>
+        <p>Created by: {{ recipe.created_by }}</p>
         <a href="{{ url_for('get_recipe') }}" class="btn-large red text-shadow">Cancel</a>
+</div>
 
-        {% endblock %}
+{% endblock %}

@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap');
+
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .flashes h4 {
@@ -31,6 +35,11 @@ body {
 }
 
 .text {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.texts {
     width: 80%;
 }
 

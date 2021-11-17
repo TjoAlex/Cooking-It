@@ -11,10 +11,12 @@ if os.path.exists("env.py"):
 # ---- CONFIG ---- #
 
 app = Flask(__name__)
-
-app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.secret_key = os.environ.get("SECRET_KEY")
+app.config["MONGO_DBNAME"] = os.getenv(
+    "MONGO_DBNAME")
+app.config["MONGO_URI"] = os.getenv(
+    "MONGO_URI")
+app.secret_key = os.getenv(
+    "SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -121,7 +123,8 @@ def logout():
 def recipe_page(recipe_id):
     # Route to show single recipe view page
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('recipe.html', recipe=recipe)
+    recipe_ingredients = recipe['recipe_ingredients'].split(", ")
+    return render_template('recipe.html', recipe=recipe, recipe_ingredients=recipe_ingredients)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])

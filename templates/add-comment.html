@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row center-align">
+    <form class="col s12" method="POST" action="{{ url_for('add_comment', recipe_id=recipe._id) }}">
+        <div class="row">
+            <h2>Add your comment</h2>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="comment" name="comment" minlength="5" maxlength="300" class="materialize-textarea"
+                        required></textarea>
+                    <label for="textarea1">Textarea</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="custom-btn btn">Add comment</button>
+    </form>
+</div>
+
+
+{% endblock %}

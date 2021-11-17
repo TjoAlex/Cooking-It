@@ -180,6 +180,24 @@ def delete_recipe(recipe_id):
     return redirect(url_for("get_recipe"))
 
 
+# Add comment to recipes
+@app.route("/add-comment/<recipe_id>", methods=["GET", "POST"])
+def add_comment(recipe_id):
+    # Get the id of the recipe one want to comment
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    if request.method == "POST":
+        # Comment saved in the correct format for comments table
+        new_comment = {
+            "title": recipe["recipe_name"],
+            "comment": request.form.get("comment"),
+            "username": session["user"]
+        }
+        # New comment added to comments table
+        mongo.db.comments.insert_one(new_comment)
+        flash("Your comment is added!")
+
+    return render_template("add-comment.html", recipe=recipe)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

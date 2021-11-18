@@ -4,4 +4,5 @@ $(document).ready(function () {
     });
     $('select').formSelect();
     $('.parallax').parallax();
+    $('.modal').modal();
 });

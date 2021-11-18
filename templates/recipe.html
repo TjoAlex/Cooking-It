@@ -65,19 +65,19 @@
 <div class="row center-align card-panel grey lighten-5 comment">
         <p>Posted by: {{ comment.username }}</p>
         <p>{{ comment.comment }}</p>
+        <p>{{ comment.title }}</p>
 
-        <!-- Delete & edit comment button -->
-        <a href="{{ url_for('update_comment', comment_id=comment._id) }}" class="btn-small teal darken-4">Edit
-                comment</a><br><br>
+        <!-- Delete comment button -->
         <a href="{{ url_for('delete_comment', comment_id=comment._id) }}" class="btn-small red lighten-1">Delete
                 comment</a>
 </div>
 {% endfor %}
-
-<h3 class="center-align">Leave a comment<br><br>
-        <a href="{{ url_for('add_comment', recipe_id=recipe._id) }}" class="btn-large teal darken-4 center-align">Add
+<br><br>
+<div class="row center-align">
+        <a href="{{ url_for('add_comment', recipe_id=recipe._id) }}" class="btn-large teal accent-4 center-align">Add
                 Comment</a>
-</h3>
+</div>
 {% endif %}
+
 
 {% endblock %}

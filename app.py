@@ -124,7 +124,8 @@ def recipe_page(recipe_id):
     # Route to show single recipe view page
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     recipe_ingredients = recipe['recipe_ingredients'].split(", ")
-    return render_template('recipe.html', recipe=recipe, recipe_ingredients=recipe_ingredients)
+    comments = mongo.db.comments.find()
+    return render_template('recipe.html', recipe=recipe, recipe_ingredients=recipe_ingredients, comments=comments)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -180,15 +181,15 @@ def delete_recipe(recipe_id):
     return redirect(url_for("get_recipe"))
 
 
-# Add comment to recipes
+# Add comment 
 @app.route("/add-comment/<recipe_id>", methods=["GET", "POST"])
 def add_comment(recipe_id):
     # Get the id of the recipe one want to comment
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    if request.method == "POST":
+    if request.method == "POST": 
         # Comment saved in the correct format for comments table
         new_comment = {
-            "title": recipe["recipe_name"],
+            "title": recipe["title"],
             "comment": request.form.get("comment"),
             "username": session["user"]
         }
@@ -197,6 +198,31 @@ def add_comment(recipe_id):
         flash("Your comment is added!")
 
     return render_template("add-comment.html", recipe=recipe)
+
+
+# Update comment
+@app.route("/update-comment/<comment_id>", methods=["GET", "POST"])
+def update_comment(comment_id):
+    comments = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
+    if request.method == "POST":
+        # Comment found by id updated by new comment
+        mongo.db.comments.update({'_id': ObjectId(comment_id)}, {
+            "title": comments["title"],
+            "comment": request.form.get("comment"),
+            "username": session["user"]
+        })
+        flash("Your comment is updated")
+    return render_template("update-comment.html", comments=comments)
+
+
+# Delete comment
+@app.route("/delete-comment<comment_id>", methods=["GET", "POST"])
+def delete_comment(comment_id):
+    # Removing the comment using the comment id
+    mongo.db.comments.remove({"_id": ObjectId(comment_id)})
+    flash("Your comment is deleted")
+    return redirect(url_for("recipes.html"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

@@ -49,3 +49,12 @@ body {
     width: 90% !important;
     border: #f4f4f4 3px solid !important;
 }
+
+.comment {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.name {
+    font-size: 4.0rem;
+}

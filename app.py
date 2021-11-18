@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -25,11 +25,15 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
+    """Get the home page"""
     return render_template("index.html")
 
 
+"""finds all the recipes"""
+
+
 @app.route("/get_recipe")
-def get_recipe():
+def get_recipe():  # Here is the function to call all recipes
     recipe = list(mongo.db.recipe.find())
     return render_template("recipes.html", recipe=recipe)
 
@@ -103,7 +107,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    if session["user"]:    
+    if session["user"]:
         return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
@@ -124,8 +128,16 @@ def recipe_page(recipe_id):
     # Route to show single recipe view page
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     recipe_ingredients = recipe['recipe_ingredients'].split(", ")
-    comments = mongo.db.comments.find()
-    return render_template('recipe.html', recipe=recipe, recipe_ingredients=recipe_ingredients, comments=comments)
+    comments = mongo.db.comments.find({"for_recipe": recipe["recipe_name"]})
+    return render_template(
+        'recipe.html',
+        recipe=recipe,
+        recipe_ingredients=recipe_ingredients,
+        comments=comments
+        )
+
+
+"""Function to add a recipe"""
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -168,10 +180,13 @@ def edit_recipe(recipe_id):
         flash("Your recipe is updated!")
         return redirect(url_for("get_recipe"))
 
-    """A dummy docstring."""
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_recipe.html", recipe=recipe, categories=categories)
+    return render_template(
+        "edit_recipe.html",
+        recipe=recipe,
+        categories=categories
+        )
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -181,15 +196,15 @@ def delete_recipe(recipe_id):
     return redirect(url_for("get_recipe"))
 
 
-# Add comment 
+# Add comment
 @app.route("/add-comment/<recipe_id>", methods=["GET", "POST"])
 def add_comment(recipe_id):
     # Get the id of the recipe one want to comment
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    if request.method == "POST": 
+    if request.method == "POST":
         # Comment saved in the correct format for comments table
         new_comment = {
-            "title": recipe["title"],
+            "for_recipe": recipe["recipe_name"],
             "comment": request.form.get("comment"),
             "username": session["user"]
         }
@@ -207,7 +222,7 @@ def update_comment(comment_id):
     if request.method == "POST":
         # Comment found by id updated by new comment
         mongo.db.comments.update({'_id': ObjectId(comment_id)}, {
-            "title": comments["title"],
+            "for_recipe": recipe["recipe_name"],
             "comment": request.form.get("comment"),
             "username": session["user"]
         })
@@ -221,7 +236,7 @@ def delete_comment(comment_id):
     # Removing the comment using the comment id
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
     flash("Your comment is deleted")
-    return redirect(url_for("recipes.html"))
+    return redirect(url_for("get_recipe"))
 
 
 if __name__ == "__main__":

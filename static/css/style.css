@@ -55,6 +55,18 @@ body {
     margin: 0 auto;
 }
 
+.comment-img {
+    width: 50pc;
+    height: 50pc;
+    margin: 0 auto;
+    background-size: cover;
+}
+
 .name {
     font-size: 4.0rem;
+}
+
+
+element.style {
+    width: ;
 }

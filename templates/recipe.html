@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <br>
-<h1 class="text center-align">{{ recipe.recipe_name }}</h1>
+<h1 class="name center-align">{{ recipe.recipe_name }}</h1>
 
 <div class="row center-align text">
-        <p>{{ recipe.recipe_description }}</p>
+        <h6>{{ recipe.recipe_description }}</h6>
         <br>
         <div class="container center-align">
                 <div class="row">
@@ -39,14 +39,45 @@
         <p>{{ recipe.recipe_method }}</p>
         <br>
         <p>Created by: {{ recipe.created_by }}</p>
-        <a href="{{ url_for('get_recipe') }}">Click to go back</a>
+        <a href="{{ url_for('get_recipe') }}">Go back to recipes</a>
 </div>
+<br>
 
-<h2 class="center-align">Leave a comment <br>
-        <a href="{{ url_for('add_comment', recipe_id=recipe._id) }}" class="btn-large teal darken-4">Add
+<!-- Comment section only seen for user that is logged in -->
+<h3 class="center-align">Comments
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i
+                        class="medium material-icons">info_outline</i></a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+                <div class="modal-content">
+                        <h4>You must be a registerd user that is loged in to your account if you would like to read or
+                                add any comments.</h4>
+                </div>
+                <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+        </div>
+</h3>
+{% if session.user %}
+{% for comment in comments %}
+<div class="row center-align card-panel grey lighten-5 comment">
+        <p>Posted by: {{ comment.username }}</p>
+        <p>{{ comment.comment }}</p>
+
+        <!-- Delete & edit comment button -->
+        <a href="{{ url_for('update_comment', comment_id=comment._id) }}" class="btn-small teal darken-4">Edit
+                comment</a><br><br>
+        <a href="{{ url_for('delete_comment', comment_id=comment._id) }}" class="btn-small red lighten-1">Delete
+                comment</a>
+</div>
+{% endfor %}
+
+<h3 class="center-align">Leave a comment<br><br>
+        <a href="{{ url_for('add_comment', recipe_id=recipe._id) }}" class="btn-large teal darken-4 center-align">Add
                 Comment</a>
-</h2>
-
-
+</h3>
+{% endif %}
 
 {% endblock %}

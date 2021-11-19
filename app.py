@@ -1,22 +1,19 @@
 import os
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+from flask import Flask, flash, render_template, redirect, \
+    request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+
 if os.path.exists("env.py"):
     import env
 
 # ---- CONFIG ---- #
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = os.getenv(
-    "MONGO_DBNAME")
-app.config["MONGO_URI"] = os.getenv(
-    "MONGO_URI")
-app.secret_key = os.getenv(
-    "SECRET_KEY")
+app.config["MONGO_DBNAME"] = os.getenv("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+app.secret_key = os.getenv("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -27,9 +24,6 @@ mongo = PyMongo(app)
 def index():
     """Get the home page"""
     return render_template("index.html")
-
-
-"""finds all the recipes"""
 
 
 @app.route("/get_recipe")
@@ -44,6 +38,7 @@ def search():
     recipe = list(mongo.db.recipe.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipe=recipe)
 
+
 # ---- User ---- #
 
 
@@ -52,7 +47,8 @@ def register():
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()}
+        )
 
         if existing_user:
             flash("Username already exists")
@@ -60,7 +56,7 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
         }
         mongo.db.users.insert_one(register)
 
@@ -77,17 +73,17 @@ def login():
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()}
+        )
 
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+                existing_user["password"], request.form.get("password")
+            ):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -101,12 +97,13 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
+# User Profile Page
+@app.route("/profile/<username>", methods=['GET', 'POST'])
 def profile(username):
-    # grab the session user's username from db
+    # Get the session user's username from the database
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
+       {"username": session["user"]})["username"]
+    # Display user's username on the page
     if session["user"]:
         return render_template("profile.html", username=username)
 
@@ -120,24 +117,22 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
 # ---- RECIPE PAGES ---- #
 
 
-@app.route('/recipe_page/<recipe_id>', methods=['GET', 'POST'])
+@app.route("/recipe_page/<recipe_id>", methods=["GET", "POST"])
 def recipe_page(recipe_id):
     # Route to show single recipe view page
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    recipe_ingredients = recipe['recipe_ingredients'].split(", ")
+    recipe_ingredients = recipe["recipe_ingredients"].split(", ")
     comments = mongo.db.comments.find({"for_recipe": recipe["recipe_name"]})
     return render_template(
-        'recipe.html',
+        "recipe.html",
         recipe=recipe,
         recipe_ingredients=recipe_ingredients,
-        comments=comments
-        )
-
-
-"""Function to add a recipe"""
+        comments=comments,
+    )
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -152,7 +147,7 @@ def add_recipe():
             "recipe_servings": request.form.get("recipe_servings"),
             "recipe_time": request.form.get("recipe_time"),
             "recipe_method": request.form.get("recipe_method"),
-            "created_by": session["user"]
+            "created_by": session["user"],
         }
         mongo.db.recipe.insert_one(add)
         flash("Your new recipe is added!")
@@ -174,7 +169,7 @@ def edit_recipe(recipe_id):
             "recipe_servings": request.form.get("recipe_servings"),
             "recipe_time": request.form.get("recipe_time"),
             "recipe_method": request.form.get("recipe_method"),
-            "created_by": session["user"]
+            "created_by": session["user"],
         }
         mongo.db.recipe.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Your recipe is updated!")
@@ -182,11 +177,9 @@ def edit_recipe(recipe_id):
 
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template(
-        "edit_recipe.html",
-        recipe=recipe,
-        categories=categories
-        )
+    return render_template("edit_recipe.html",
+                           recipe=recipe,
+                           categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -206,7 +199,7 @@ def add_comment(recipe_id):
         new_comment = {
             "for_recipe": recipe["recipe_name"],
             "comment": request.form.get("comment"),
-            "username": session["user"]
+            "username": session["user"],
         }
         # New comment added to comments table
         mongo.db.comments.insert_one(new_comment)
@@ -227,4 +220,4 @@ def delete_comment(comment_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)

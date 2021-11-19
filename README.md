@@ -10,7 +10,7 @@ This is the main website for Cooking-It. It is designed to be accessible and res
 
 ## Strategy
 
-The purpous of Cooking-It is to bring people with the love of food together and have a place where lots of different recipes are collected at one place to make it easy access finding inspiration. So it empovers the user to share their own recipes and have pne single place to find recipes on, making it no longer neccessary to jump from website to website to find new knowledge in food and everything it has to offer. 
+The purpous of Cooking-It is to bring people with the love of food together and have a place where lots of different recipes are collected at one place to make it easy access finding inspiration. So it empovers the user to share their own recipes and have one single place to find recipes on, making it no longer neccessary to jump from website to website to find new knowledge in food and everything it has to offer. 
 
 ### Site Goals
 
@@ -18,6 +18,7 @@ The purpous of Cooking-It is to bring people with the love of food together and 
 * Provide an overview fo every type of recipe it has to offer
 * Provide in debth information about particular recipes the user would like to explore 
 * Easy access to upload your own recipes to share with others
+* possibility to share their thoughts on a particular recipe by being able to add, read or remove comments
 
 ### User stories:
 * First Time Visitor Goals
@@ -27,14 +28,13 @@ The purpous of Cooking-It is to bring people with the love of food together and 
     * As a First Time Visitor, I want to be able to register for Cooking-It;
     * As a First Time Visitor, I want an overall picture of what my own account can provide in addition to what is already available without a account;
     * As a First Time Visitor, I want to be able to add my own recipes;
-    * As a First Time Visitor, I want to have the option to edit or delete my own recipes.
+    * As a First Time Visitor, I want to have the option to edit or delete my own recipes,
     * As a First Time Visitor, I want to able to logout.
 * Returning Visitor Goals
     * As a Returning Visitor, I want the same application experience as a first time visitor;
     * As a Returning Visitor, I want to login to my own account;
     * As a Returning Visitor, I want to find new post of different recipes from other users;
-    * As a Returning Visitor, I want to share recepies I found on the website;
-    * As a Returning Visitor, I want to be able to edit or remove my profile.
+    * As a Returning Visitor, I want to be able to read comments and add comments. 
 * Frequent User Goals
     * As a Frequent User, I want the same experience as a returning visitor;
     * As a Frequent User, I want to check to see if there are any newly added comments to my own or others recepies;
@@ -112,7 +112,7 @@ Acceptance criteria:
 * The user should easily find trough navigation or their profile their way to add a new recipe.
 
 Implementation:
-* The user will find in the navigation the option to add a recipe, meaning a page provided with a form that one must follow step by step to make a propper recipe. This link to this form will also be found under the users profile page, providing as easy access as possible for the user to find it's own way to create a recipe. Once he or she has finished working on the recipe they can click on "Add recipe" and the will come back to the recipes page with a message telling them the recipe has been added.
+* The user will find in the navigation the option to add a recipe, meaning a page provided with a form that one must follow step by step to make a propper recipe. This link to this form will also be found under the users profile page presented as a button, providing as easy access as possible for the user to find it's own way to create a recipe. Once he or she has finished working on the recipe they can click on "Add recipe" and the will come back to the recipes page with a message telling them the recipe has been added.
 
 <h2 align="center"><img src="#.png"></h2>
 
@@ -122,7 +122,7 @@ Acceptance criteria:
 * It should be fairly easy for the user to find the edit or delete buttons provided on the recipes page.
 
 Implementation:
-* Once the user has added it's recipe they can either scroll to find it on the recipes page or search for it to then find that their recipes added now have buttons as delete or edit. Made to easily click that either if you clicked edit will take you back to the recipe form or if clicked delete will remove it for you confirmed on top of the page by a message telling the user your recipe has now been deleted. 
+* Once the user has added it's recipe they can either scroll on the recipes page or search for it by ingredient or name to then find that their recipes added now have buttons as delete or edit. Made to easily click that either if you clicked edit will take you back to the recipe form or if clicked delete will remove it for you confirmed on top of the page by a message telling the user your recipe has now been deleted. 
 
 <h2 align="center"><img src="#.png"></h2>
 
@@ -132,7 +132,7 @@ Acceptance criteria:
 * It should be fairly easy for the user to log out of their own account.
 
 Implementation:
-* As the navigation on top of the page holds a lot of helping guidlines for the user, even here the user can find a link to be able to logout of the page. Just by clicking on the logout the user will sucessfully be loged out. Otherwise the user also can find the logout button on their profile page. Making it extray easy to always find it's way out of the website. 
+* As the navigation on top of the page holds a lot of helping guidlines for the user, even here the user can find a button to be able to logout of the page. Just by clicking on the logout button the user will sucessfully be loged out. Otherwise the user also can find the logout button on the bottom of their profile page. Making it extray easy to always find it's way out of the website. 
 
 <h2 align="center"><img src="#.png"></h2>
 

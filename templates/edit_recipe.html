@@ -2,6 +2,21 @@
 {% block content %}
 
 <h3 class="center-align">Edit Recipe</h3>
+<!-- Modal Trigger -->
+<div class="container center-align">
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i
+            class="medium material-icons">info_outline</i></a>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Make sure to separate every ingredient with a comma and then a space.</h4>
+            <h4>For image a url means the web address for the image. You can right click on an image you want and it
+                will let you copy the image address.</h4>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+</div>
 
 <div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
@@ -81,7 +96,7 @@
     <div class="col s12 center-align">
         <!-- Canel button -->
         <a href="{{ url_for('get_recipe') }}" class="btn-large red text-shadow">Cancel</a>
-        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+        <button type="submit" class="btn-large teal darken-4 text-shadow">
             Edit Recipe
         </button>
     </div>

@@ -141,13 +141,13 @@ Implementation:
 
 Below you find the wireframes: 
 
-* Home page - [View]()
-* Recipes page -
-* Recipe Page -
-* Profile Page -
-* Add recipe Page - 
-* Register Page -
-* Logout Page -
+* Home page - [View](https://github.com/TjoAlex/Cooking-It/blob/main/static/images/wireframe%201.png)
+* Recipes page - [View](https://github.com/TjoAlex/Cooking-It/blob/main/static/images/wireframe%202.png)
+* Recipe Page - [View](https://github.com/TjoAlex/Cooking-It/blob/main/static/images/wireframe%203.png)
+* Profile Page - [View](https://github.com/TjoAlex/Cooking-It/blob/main/static/images/wireframe%204.png)
+* Add recipe Page - [View](https://github.com/TjoAlex/Cooking-It/blob/main/static/images/wireframe%205.png)
+* Register Page - [View](https://github.com/TjoAlex/Cooking-It/blob/main/static/images/wireframe%206.png)
+* Logout Page - [View](https://github.com/TjoAlex/Cooking-It/blob/main/static/images/wireframe%207.png)
 
 ## Database Design
 

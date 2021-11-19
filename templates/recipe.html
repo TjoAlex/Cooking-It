@@ -44,7 +44,8 @@
 <br>
 
 <!-- Comment section only seen for user that is logged in -->
-<h3 class="center-align">Comments
+<h3 class="center-align">Comments</h3>
+<div class="container center-align">
         <!-- Modal Trigger -->
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i
                         class="medium material-icons">info_outline</i></a>
@@ -52,14 +53,15 @@
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
                 <div class="modal-content">
-                        <h4>You must be a registerd user that is loged in to your account if you would like to read or
-                                add any comments.</h4>
+                        <p>You must be a registerd user that is loged in to your account if you would like to read or
+                                add any comments.</p>
                 </div>
                 <div class="modal-footer">
                         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                 </div>
         </div>
-</h3>
+</div>
+
 {% if session.user %}
 {% for comment in comments %}
 <div class="row center-align card-panel grey lighten-5 comment">

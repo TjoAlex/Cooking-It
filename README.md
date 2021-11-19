@@ -141,9 +141,13 @@ Implementation:
 
 Below you find the wireframes: 
 
-    -   Home Page Wireframe - [View](#)
-    -   Mobile Wireframe - [View](#)
-    -   Contact Us Page Wireframe - [View](#)
+* Home page - [View]()
+* Recipes page -
+* Recipe Page -
+* Profile Page -
+* Add recipe Page - 
+* Register Page -
+* Logout Page -
 
 ## Database Design
 
@@ -339,6 +343,9 @@ Enable automatic deployment:
 Extra credit for the code institute lesson and mini project, I have not copied any of their code except for one regarding flash message on the base template under line 65. Here is the link to their lesson [Code Institute](https://github.com/Code-Institute-Solutions/TaskManagerAuth/blob/main/02-UserAuthenticationAndAuthorization/04-login_functionality/templates/base.html). On this line you will also find a comment providing the link to the lesson so that I won't take credit for it. 
 
 I want to mention that non of the images is owned by me except for thos for the readme, all the images on the landing/home page are from the website [unsplash](https://cooking-it.herokuapp.com/). Other images provided for the recipes and added from friends and family testing the website are from different sources you could find if copying the img url. 
+
+For the responsiv image on top of this page I used [ami](http://ami.responsivedesign.is/#) that takes my website and show it in images as seen above. 
+
 ## Code 
 
 ## Sources and documentation used

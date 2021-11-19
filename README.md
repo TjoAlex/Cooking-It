@@ -80,10 +80,10 @@ Implementation:
 > As a First Time Visitor, I want to search for different recipes.
 
 Acceptance criteria:
-* It should be fairly easy for the user to search the database for recipes by ingredient or name. 
+* It should be fairly easy for the user to search the database for recipes. 
 
 Implementation:
-* The user will find a search bar when visiting the recipes page that is styled to be easily seen on top of that page, also holding a heading telling the user what it actually is. The search bar is provided with functions that makes it possible to search by name of a recipe or ingredient to easily find what one is looking for. 
+* The user will find a search bar when visiting the recipes page that is styled to be easily seen on top of that page, also holding a heading telling the user what it actually is. The search bar is provided with functions that makes it possible to search by recipe name example pancakes or Super spinach pancakes to easily find what one is looking for. 
 
 <img src="./static/images/search.png">
 
@@ -226,6 +226,7 @@ In my opinion ther is a lot that could be implemented to this website to make it
 * Saving your own recipes on your profile, making less "hard" finding your own recipes if wanting to edit or delete them.
 * Have a like button that could save all your liked recipes in your profile.
 * Have all usernames presented with one capital letter.
+* A search bar that you can search by ingredients in.
 
 ## Technologies Used
 
@@ -271,8 +272,8 @@ In my opinion ther is a lot that could be implemented to this website to make it
 
 * [W3C Markup Validator:](https://validator.w3.org/)<br><br> No particular errors where found besides putting modal into a section instead of h3 tag.<br>Some errors and warnings was caused due to Jinja syntax but beside that no errors or warnings were found.<br>
 
-* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)<br><br>Where there errors?
-* [jshint.com](https://jshint.com/)<br><br>Where there errors?
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)<br><br>No errors were found.
+* [jshint.com](https://jshint.com/)<br><br>No errors were found.
 * [PEP8 Validator](http://pep8online.com/)<br><br>The check resulted in a a few errors.<br>All of them said "line too long", as some of them were a bit longer than 79 characters, none of them exceeded the limit with 30 characters.
 
 ## Testing User Stories from User Experience (UX) Section

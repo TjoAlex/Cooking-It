@@ -193,6 +193,7 @@ def edit_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipe.remove({"_id": ObjectId(recipe_id)})
+    # message for user after recipe is deleted
     flash("Your recipe is now deleted")
     return redirect(url_for("get_recipe"))
 

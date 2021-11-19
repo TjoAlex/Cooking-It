@@ -1,22 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h1 class="center-align">Comment</h1><br><br>
+
 <div class="row center-align">
-    <form class="col s12" method="POST" action="{{ url_for('add_comment', recipe_id=recipe._id) }}">
-        <div class="row">
-            <h2>Add your comment</h2>
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_comment', recipe_id=recipe._id) }}">
+        <div class="card-panel">
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="comment" name="comment" minlength="5" maxlength="300" class="materialize-textarea"
-                        required></textarea>
-                    <label for="textarea1">Textarea</label>
+                    <i class="large material-icons">child_care</i>
+                    <h5>Maintain a good attitude that does not depress others</h5>
                 </div>
             </div>
+            <!-- comment input -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">border_color</i>
+                    <input id="comment" name="comment" type="text" minlength="3" maxlength="300"
+                        class="materialize-textarea" required>
+                    <label for="textarea">Type your comment here...</label>
+                </div>
+            </div>
+            <!-- submit comment & link back to recipe -->
+            <div class="row center-align">
+                <button type="submit" class=" btn-large teal darken-3 text-shadow">
+                    Submit comment
+                </button>
+                <br><br>
+                <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}">Go back to recipe</a>
+            </div>
         </div>
-        <button type="submit" class="custom-btn btn">Add comment</button>
-        <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}">Go back to recipe</a>
     </form>
 </div>
-
 
 {% endblock %}

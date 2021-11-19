@@ -215,21 +215,6 @@ def add_comment(recipe_id):
     return render_template("add-comment.html", recipe=recipe)
 
 
-# Update comment
-@app.route("/update-comment/<comment_id>", methods=["GET", "POST"])
-def update_comment(comment_id):
-    comments = mongo.db.comments.find_one({"_id": ObjectId(comment_id)})
-    if request.method == "POST":
-        # Comment found by id updated by new comment
-        mongo.db.comments.update({'_id': ObjectId(comment_id)}, {
-            "for_recipe": recipe["recipe_name"],
-            "comment": request.form.get("comment"),
-            "username": session["user"]
-        })
-        flash("Your comment is updated")
-    return render_template("update-comment.html", comments=comments)
-
-
 # Delete comment
 @app.route("/delete-comment<comment_id>", methods=["GET", "POST"])
 def delete_comment(comment_id):

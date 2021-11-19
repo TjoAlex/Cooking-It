@@ -1,3 +1,8 @@
+"""
+This file holds all the code for the user of this website
+"""
+
+
 import os
 from flask import Flask, flash, render_template, redirect, \
     request, session, url_for
@@ -27,7 +32,7 @@ def index():
 
 
 @app.route("/get_recipe")
-def get_recipe():  # Here is the function to call all recipes
+def get_recipe():
     recipe = list(mongo.db.recipe.find())
     return render_template("recipes.html", recipe=recipe)
 

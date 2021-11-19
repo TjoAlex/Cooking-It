@@ -2,6 +2,21 @@
 {% block content %}
 
 <h3 class="center-align">Add New Recipe</h3>
+<!-- Modal Trigger -->
+<div class="container center-align">
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i
+            class="medium material-icons">info_outline</i></a>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Make sure to separate every ingredient with a comma and then a space.</h4>
+            <h4>For image a url means the web address for the image. You can right click on an image you want and it
+                will let you copy the image address.</h4>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+</div>
 
 <div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
@@ -67,13 +82,13 @@
             <i class="material-icons prefix">add_a_photo</i>
             <textarea id="recipe_image" name="recipe_image" minlength="5" class="materialize-textarea validate"
                 required></textarea>
-            <label for="recipe_image"> Add image url here</label>
+            <label for="recipe_image">Add image url here</label>
         </div>
 </div>
 <!-- submit button -->
 <div class="row">
     <div class="col s12 center-align">
-        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+        <button type="submit" class="btn-large teal accent-4 text-shadow">
             Add Your Recipe
         </button>
     </div>

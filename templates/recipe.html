@@ -69,10 +69,12 @@
         <p>{{ comment.comment }}</p>
         <p>{{ comment.title }}</p>
 
+        {% if comment.username==session.user %}
         <!-- Delete comment button -->
         <a href="{{ url_for('delete_comment', comment_id=comment._id) }}" class="btn-small red lighten-1">Delete
                 comment</a>
 </div>
+{% endif %}
 {% endfor %}
 <br><br>
 <div class="row center-align">
